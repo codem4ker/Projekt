@@ -50,7 +50,7 @@ public:
     {
         if (ProjektClass->objectName().isEmpty())
             ProjektClass->setObjectName(QStringLiteral("ProjektClass"));
-        ProjektClass->resize(833, 777);
+        ProjektClass->resize(1013, 930);
         ProjektClass->setMaximumSize(QSize(16777215, 16777215));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
@@ -204,8 +204,13 @@ public:
 
         openGLWidget = new MyGLWidget(centralWidget);
         openGLWidget->setObjectName(QStringLiteral("openGLWidget"));
-        openGLWidget->setMinimumSize(QSize(691, 593));
-        openGLWidget->setMaximumSize(QSize(691, 593));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(openGLWidget->sizePolicy().hasHeightForWidth());
+        openGLWidget->setSizePolicy(sizePolicy1);
+        openGLWidget->setMinimumSize(QSize(768, 768));
+        openGLWidget->setMaximumSize(QSize(768, 768));
 
         horizontalLayout_2->addWidget(openGLWidget);
 
@@ -229,11 +234,11 @@ public:
 
         blueButton = new QPushButton(centralWidget);
         blueButton->setObjectName(QStringLiteral("blueButton"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(blueButton->sizePolicy().hasHeightForWidth());
-        blueButton->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(blueButton->sizePolicy().hasHeightForWidth());
+        blueButton->setSizePolicy(sizePolicy2);
 
         horizontalLayout->addWidget(blueButton);
 
@@ -243,8 +248,8 @@ public:
 
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        sizePolicy1.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
-        pushButton_2->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
+        pushButton_2->setSizePolicy(sizePolicy2);
 
         horizontalLayout->addWidget(pushButton_2);
 
@@ -254,8 +259,8 @@ public:
 
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        sizePolicy1.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
+        pushButton_3->setSizePolicy(sizePolicy2);
         QPalette palette2;
         QBrush brush15(QColor(0, 255, 0, 255));
         brush15.setStyle(Qt::SolidPattern);

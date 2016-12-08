@@ -17,8 +17,8 @@ protected:
 
 private:
 	int color = 1;
-	int height = 593;
-	int width = 691;
+	int height = 768;
+	int width = 768;
 	int loadTexture();
 	void drawCurve(unsigned char* tab, double a, double b);
 	GLuint texture;

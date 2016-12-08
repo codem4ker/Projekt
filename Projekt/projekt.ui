@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>833</width>
-    <height>777</height>
+    <width>1013</width>
+    <height>930</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -904,16 +904,22 @@
         </item>
         <item>
          <widget class="MyGLWidget" name="openGLWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
-            <width>691</width>
-            <height>593</height>
+            <width>768</width>
+            <height>768</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>691</width>
-            <height>593</height>
+            <width>768</width>
+            <height>768</height>
            </size>
           </property>
          </widget>
