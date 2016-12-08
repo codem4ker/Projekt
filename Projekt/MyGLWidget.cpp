@@ -17,7 +17,7 @@ void MyGLWidget::initializeGL()
 
 void MyGLWidget::paintGL()
 {
-	LoadTexture();
+	loadTexture();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -38,12 +38,12 @@ void MyGLWidget::resizeGL(int w, int h)
 {
 }
 
-int MyGLWidget::LoadTexture()
+int MyGLWidget::loadTexture()
 {
 	int size = width * 3 * height;
 	unsigned char* pixels = new unsigned char[size];
-	for (int i = 0; i < size; i++) *(pixels + i) = 0;
-	for (int i = 0; i < size / 3; i++) *(pixels + color + 3 * i) = 255;
+	
+	drawCurve(pixels, 0.5, 0.5);
 
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -70,4 +70,14 @@ void MyGLWidget::redButton()
 {
 	color = 2;
 	repaint();
+}
+
+void MyGLWidget::drawCurve(unsigned char* tab, double a, double b)
+{
+	for (double i = 0; i < 10; i += 0.1)
+	{
+		int x = (sin(a * i) + 1) * 250;
+		int y = (sin(b * i) + 1) * 250;
+		*(tab + y * this->width + 3 * x) = 255;
+	}
 }

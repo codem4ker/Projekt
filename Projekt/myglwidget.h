@@ -19,7 +19,8 @@ private:
 	int color = 1;
 	int height = 593;
 	int width = 691;
-	int LoadTexture();
+	int loadTexture();
+	void drawCurve(unsigned char* tab, double a, double b);
 	GLuint texture;
 
 public slots:
