@@ -83,17 +83,39 @@ void MyGLWidget::redButton()
 
 void MyGLWidget::setA(int value)
 {
-	this->a = ((double)value) / 10;
+	this->a = value;
 	repaint();
 }
 
-void MyGLWidget::drawCurve(unsigned char* tab, double a, double b)
+void MyGLWidget::setB(int value)
 {
-	
-	for (double i = 0; i < 10; i += 0.0001)
+	this->b = value;
+	repaint();
+}
+
+int MyGLWidget::nwd(int a, int b)
+{
+	if (b == 0) return a;
+	nwd(b, a - b * floor(a/b));
+}
+
+int MyGLWidget::nww(int a, int b)
+{ 
+	return a * b / nwd(a, b);
+}
+
+void MyGLWidget::drawCurve(unsigned char* tab, int a, int b)
+{
+	double x;
+	if (a == 0 && b == 0) x = dt;
+	else if (a == 0) x = 2 * M_PI / b;
+	else if (b == 0) x = 2 * M_PI / a;
+	else x = 2 * M_PI * nww(a, b);
+
+	for (double i = 0; i <= x ; i += dt)
 	{
 		int x = (sin(a * i) + 1) * 374 + 5;
-		int y = (sin(b * i + M_PI / 2) + 1) * 374 + 5;
+		int y = (sin(b * i) + 1) * 374 + 5;
 		*(tab +  y * 3 * this->width + 3 * x + color) = 255;
 	}
 }

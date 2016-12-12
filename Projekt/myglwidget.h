@@ -19,15 +19,20 @@ private:
 	int color = 1;
 	int height = 768;
 	int width = 768;
-	double a = 3;
-	double b = 2;
-	int loadTexture();
-	void drawCurve(unsigned char* tab, double a, double b);
+	int a = 3;
+	int b = 4;
+	double dt = 0.0001;
 	GLuint texture;
+
+	int loadTexture();
+	void drawCurve(unsigned char* tab, int a, int b);
+	int nwd(int a, int b);
+	int nww(int a, int b);
 
 public slots:
 	void blueButton();
 	void greenButton();
 	void redButton();
 	void setA(int value);
+	void setB(int value);
 };
