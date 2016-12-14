@@ -4,10 +4,13 @@
 MyGLWidget::MyGLWidget(QWidget *parent)
 	: QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
 {
+	pixmapSize = width * 3 * height;
+	pixels = new unsigned char[pixmapSize];
 }
 
 MyGLWidget::~MyGLWidget()
 {
+	free(pixels);
 }
 
 void MyGLWidget::initializeGL()
@@ -45,9 +48,7 @@ void MyGLWidget::resizeGL(int w, int h)
 
 int MyGLWidget::loadTexture()
 {
-	int size = width * 3 * height;
-	unsigned char* pixels = new unsigned char[size];
-	memset(pixels, 0, size);
+	memset(pixels, 0, pixmapSize);
 
 	drawCurve(pixels, a, b);
 

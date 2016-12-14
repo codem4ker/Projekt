@@ -19,9 +19,11 @@ private:
 	int color = 1;
 	int height = 768;
 	int width = 768;
+	int pixmapSize;
 	int a = 3;
 	int b = 4;
 	double dt = 0.0001;
+	unsigned char* pixels;
 	GLuint texture;
 
 	int loadTexture();
