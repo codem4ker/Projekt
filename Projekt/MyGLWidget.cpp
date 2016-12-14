@@ -111,8 +111,8 @@ void MyGLWidget::drawCurve(unsigned char* tab, int a, int b)
 	if (a == 0 && b == 0) x = dt;
 	else if (a == 0) x = 2 * M_PI / b;
 	else if (b == 0) x = 2 * M_PI / a;
-	else if (a < b) x = 2 * M_PI * b;
-	else x = 2 * M_PI * a;
+	else x = 2 * M_PI * b;
+	
 
 	for (double i = 0; i <= x ; i += dt)
 	{
