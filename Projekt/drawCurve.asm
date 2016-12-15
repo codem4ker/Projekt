@@ -24,6 +24,7 @@ drawCurve:
 	
 	mov r13, [width]
 	sar r13, 1
+	sub r13, 30
 	cvtsi2sd xmm7, r13
 
 	test rdx, rdx			; rdx - a
@@ -83,7 +84,7 @@ loop:
 	addsd xmm4, [one]			; sin(a*i)+1
 	mulsd xmm4, xmm7			; (sin(a*i)+1)*width/2
 	cvttsd2si r10, xmm4
-	;add r10, 10					; r10 = x = (sin(a*i)+1)*width/2 + 10
+	add r10, 30					; r10 = x = (sin(a*i)+1)*width/2 + 10
 
 	movsd xmm4, xmm3			; b
 	mulsd xmm4, xmm5			; b * i
@@ -95,7 +96,7 @@ loop:
 	addsd xmm4, [one]			; sin(b*i)+1
 	mulsd xmm4, xmm7			; (sin(b*i)+1)*width/2
 	cvttsd2si r12, xmm4
-	;add r12, 10					; r12 = y = (sin(b*i)+1)*width/2 + 10
+	add r12, 30					; r12 = y = (sin(b*i)+1)*width/2 + 10
 
 	mov r14, [width]
 	imul r14, 3
