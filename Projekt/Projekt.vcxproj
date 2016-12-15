@@ -147,6 +147,7 @@
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5OpenGL.lib;opengl32.lib;glu32.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LargeAddressAware>false</LargeAddressAware>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -266,6 +267,8 @@
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"C:\Program Files\NASM\nasm" -f win64 drawCurve.asm</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">drawCurve.obj</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"C:\Program Files\NASM\nasm" -f win64 drawCurve.asm</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">drawCurve.obj</Outputs>
     </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

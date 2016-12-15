@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>866</width>
-    <height>900</height>
+    <height>929</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -433,6 +433,10 @@
   </property>
   <property name="windowTitle">
    <string>Krzywe Lissajous</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../1-0.jpg</normaloff>../../../../1-0.jpg</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="sizePolicy">
@@ -885,7 +889,7 @@
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>30</height>
+          <height>20</height>
          </size>
         </property>
        </spacer>
@@ -1227,6 +1231,130 @@
        </layout>
       </item>
       <item>
+       <spacer name="verticalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>15</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>50</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QSlider" name="horizontalSlider_3">
+          <property name="maximum">
+           <number>360</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>15</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>φ:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>45</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>45</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
        <spacer name="verticalSpacer_3">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -1259,6 +1387,7 @@
     <slot>redButton()</slot>
     <slot>setA(int)</slot>
     <slot>setB(int)</slot>
+    <slot>setFi(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -1273,8 +1402,8 @@
    <slot>setA(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>274</x>
-     <y>880</y>
+     <x>333</x>
+     <y>838</y>
     </hint>
     <hint type="destinationlabel">
      <x>168</x>
@@ -1289,8 +1418,8 @@
    <slot>setB(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>257</x>
-     <y>936</y>
+     <x>316</x>
+     <y>877</y>
     </hint>
     <hint type="destinationlabel">
      <x>69</x>
@@ -1305,12 +1434,12 @@
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>650</x>
-     <y>865</y>
+     <x>709</x>
+     <y>838</y>
     </hint>
     <hint type="destinationlabel">
-     <x>811</x>
-     <y>861</y>
+     <x>816</x>
+     <y>837</y>
     </hint>
    </hints>
   </connection>
@@ -1321,12 +1450,44 @@
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>622</x>
-     <y>935</y>
+     <x>681</x>
+     <y>877</y>
     </hint>
     <hint type="destinationlabel">
-     <x>813</x>
-     <y>938</y>
+     <x>816</x>
+     <y>877</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setFi(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>270</x>
+     <y>899</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>233</x>
+     <y>784</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_6</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>706</x>
+     <y>904</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>794</x>
+     <y>913</y>
     </hint>
    </hints>
   </connection>

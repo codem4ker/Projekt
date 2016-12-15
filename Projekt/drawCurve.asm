@@ -1,9 +1,9 @@
 section .data
 	d_pi:	dq 6.283185307
 	dt: dq 0.0001
-	height: dd 768
 	width: dd 768
 	one: dq 1.0
+	rad: dq 0.01745329
 
 section .text
 global drawCurve
@@ -26,6 +26,10 @@ drawCurve:
 	sar r13, 1
 	sub r13, 30
 	cvtsi2sd xmm7, r13
+
+	cvtsi2sd xmm6, r9		; xmm6 - fi
+	mulsd xmm6, [rad]
+
 
 	test rdx, rdx			; rdx - a
 	jz a_zero
@@ -76,15 +80,16 @@ b_zero:
 loop:
 	movsd xmm4, xmm2			; a
 	mulsd xmm4, xmm5			; a * i
+	addsd xmm4, xmm6			; a * i + fi
 	movsd [rsp], xmm4
 	fld qword [rsp]
 	fsin
 	fstp qword [rsp]
-	movsd xmm4, [rsp]			; sin(a*i)
-	addsd xmm4, [one]			; sin(a*i)+1
-	mulsd xmm4, xmm7			; (sin(a*i)+1)*width/2
+	movsd xmm4, [rsp]			; sin(a*i + fi)
+	addsd xmm4, [one]			; sin(a*i + fi)+1
+	mulsd xmm4, xmm7			; (sin(a*i + fi)+1)*width/2
 	cvttsd2si r10, xmm4
-	add r10, 30					; r10 = x = (sin(a*i)+1)*width/2 + 10
+	add r10, 30					; r10 = x = (sin(a*i + fi)+1)*width/2 + 10
 
 	movsd xmm4, xmm3			; b
 	mulsd xmm4, xmm5			; b * i

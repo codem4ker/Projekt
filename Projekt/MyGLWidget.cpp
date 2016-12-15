@@ -1,7 +1,7 @@
 #include "myglwidget.h"
 #include <QtOpenGL>
 
-extern "C" void drawCurve(unsigned char* tab, int a, int b);
+extern "C" void drawCurve(unsigned char* tab, int a, int b, int fi);
 
 MyGLWidget::MyGLWidget(QWidget *parent)
 	: QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
@@ -52,7 +52,7 @@ int MyGLWidget::loadTexture()
 {
 	memset(pixels, 0, pixmapSize);
 
-	drawCurve(pixels, a, b);
+	drawCurve(pixels, a, b, fi);
 
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -79,20 +79,8 @@ void MyGLWidget::setB(int value)
 	repaint();
 }
 
-/*
-void MyGLWidget::drawCurve(unsigned char* tab, int a, int b)
+void MyGLWidget::setFi(int value)
 {
-	double x;
-	if (a == 0 && b == 0) x = dt;
-	else if (a == 0) x = 2 * M_PI / b;
-	else if (b == 0) x = 2 * M_PI / a;
-	else x = 2 * M_PI * b;
-	
-
-	for (double i = 0; i <= x ; i += dt)
-	{
-		int x = (sin(a * i) + 1) * 374 + 5;
-		int y = (sin(b * i) + 1) * 374 + 5;
-		*(tab +  y * 3 * this->width + 3 * x + color) = 255;
-	}
-}*/
+	this->fi = value;
+	repaint();
+}

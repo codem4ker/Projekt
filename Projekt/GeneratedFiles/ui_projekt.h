@@ -52,13 +52,21 @@ public:
     QLabel *label_4;
     QLabel *label_2;
     QSpacerItem *horizontalSpacer_10;
+    QSpacerItem *verticalSpacer_5;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer_4;
+    QSlider *horizontalSlider_3;
+    QSpacerItem *horizontalSpacer_5;
+    QLabel *label_5;
+    QLabel *label_6;
+    QSpacerItem *horizontalSpacer_6;
     QSpacerItem *verticalSpacer_3;
 
     void setupUi(QMainWindow *ProjektClass)
     {
         if (ProjektClass->objectName().isEmpty())
             ProjektClass->setObjectName(QStringLiteral("ProjektClass"));
-        ProjektClass->resize(866, 900);
+        ProjektClass->resize(866, 929);
         ProjektClass->setMaximumSize(QSize(16777215, 16777215));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
@@ -123,6 +131,7 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush7);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
         ProjektClass->setPalette(palette);
+        
         centralWidget = new QWidget(ProjektClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -199,7 +208,7 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalSpacer_2 = new QSpacerItem(20, 30, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer_2);
 
@@ -338,6 +347,51 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
+        verticalSpacer_5 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer_5);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalSpacer_4 = new QSpacerItem(50, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_4);
+
+        horizontalSlider_3 = new QSlider(centralWidget);
+        horizontalSlider_3->setObjectName(QStringLiteral("horizontalSlider_3"));
+        horizontalSlider_3->setMaximum(360);
+        horizontalSlider_3->setOrientation(Qt::Horizontal);
+
+        horizontalLayout->addWidget(horizontalSlider_3);
+
+        horizontalSpacer_5 = new QSpacerItem(15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_5);
+
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setFont(font);
+
+        horizontalLayout->addWidget(label_5);
+
+        label_6 = new QLabel(centralWidget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        sizePolicy2.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
+        label_6->setSizePolicy(sizePolicy2);
+        label_6->setMinimumSize(QSize(45, 0));
+        label_6->setMaximumSize(QSize(45, 16777215));
+        label_6->setFont(font);
+
+        horizontalLayout->addWidget(label_6);
+
+        horizontalSpacer_6 = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_6);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
         verticalSpacer_3 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer_3);
@@ -352,6 +406,8 @@ public:
         QObject::connect(horizontalSlider, SIGNAL(valueChanged(int)), openGLWidget, SLOT(setB(int)));
         QObject::connect(horizontalSlider_2, SIGNAL(valueChanged(int)), label, SLOT(setNum(int)));
         QObject::connect(horizontalSlider, SIGNAL(valueChanged(int)), label_2, SLOT(setNum(int)));
+        QObject::connect(horizontalSlider_3, SIGNAL(valueChanged(int)), openGLWidget, SLOT(setFi(int)));
+        QObject::connect(horizontalSlider_3, SIGNAL(valueChanged(int)), label_6, SLOT(setNum(int)));
 
         QMetaObject::connectSlotsByName(ProjektClass);
     } // setupUi
@@ -363,6 +419,8 @@ public:
         label->setText(QApplication::translate("ProjektClass", "3", 0));
         label_4->setText(QApplication::translate("ProjektClass", "b:", 0));
         label_2->setText(QApplication::translate("ProjektClass", "4", 0));
+        label_5->setText(QApplication::translate("ProjektClass", "\317\206:", 0));
+        label_6->setText(QApplication::translate("ProjektClass", "0", 0));
     } // retranslateUi
 
 };

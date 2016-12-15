@@ -21,7 +21,7 @@ private:
 	int pixmapSize;
 	int a = 3;
 	int b = 4;
-	double dt = 0.0001;
+	int fi = 0;
 	unsigned char* pixels;
 	GLuint texture;
 
@@ -30,4 +30,5 @@ private:
 public slots:
 	void setA(int value);
 	void setB(int value);
+	void setFi(int value);
 };
