@@ -1,6 +1,8 @@
 #include "myglwidget.h"
 #include <QtOpenGL>
 
+extern "C" void drawCurve(unsigned char* tab, int a, int b);
+
 MyGLWidget::MyGLWidget(QWidget *parent)
 	: QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
 {
@@ -104,7 +106,7 @@ int MyGLWidget::nww(int a, int b)
 { 
 	return a * b / nwd(a, b);
 }
-
+/*
 void MyGLWidget::drawCurve(unsigned char* tab, int a, int b)
 {
 	double x;
@@ -120,4 +122,4 @@ void MyGLWidget::drawCurve(unsigned char* tab, int a, int b)
 		int y = (sin(b * i) + 1) * 374 + 5;
 		*(tab +  y * 3 * this->width + 3 * x + color) = 255;
 	}
-}
+}*/

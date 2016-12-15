@@ -27,7 +27,7 @@ private:
 	GLuint texture;
 
 	int loadTexture();
-	void drawCurve(unsigned char* tab, int a, int b);
+	//void drawCurve(unsigned char* tab, int a, int b);
 	int nwd(int a, int b);
 	int nww(int a, int b);
 
