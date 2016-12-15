@@ -66,23 +66,6 @@ int MyGLWidget::loadTexture()
 	return 1;
 }
 
-void MyGLWidget::blueButton()
-{
-	color = 0;
-	repaint();
-}
-
-void MyGLWidget::greenButton()
-{
-	color = 1;
-	repaint();
-}
-
-void MyGLWidget::redButton()
-{
-	color = 2;
-	repaint();
-}
 
 void MyGLWidget::setA(int value)
 {
@@ -96,16 +79,6 @@ void MyGLWidget::setB(int value)
 	repaint();
 }
 
-int MyGLWidget::nwd(int a, int b)
-{
-	if (b == 0) return a;
-	nwd(b, a - b * floor(a/b));
-}
-
-int MyGLWidget::nww(int a, int b)
-{ 
-	return a * b / nwd(a, b);
-}
 /*
 void MyGLWidget::drawCurve(unsigned char* tab, int a, int b)
 {

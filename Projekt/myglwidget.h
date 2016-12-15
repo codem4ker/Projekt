@@ -16,7 +16,6 @@ protected:
 	void resizeGL(int w, int h);
 
 private:
-	int color = 1;
 	int height = 768;
 	int width = 768;
 	int pixmapSize;
@@ -27,14 +26,8 @@ private:
 	GLuint texture;
 
 	int loadTexture();
-	//void drawCurve(unsigned char* tab, int a, int b);
-	int nwd(int a, int b);
-	int nww(int a, int b);
 
 public slots:
-	void blueButton();
-	void greenButton();
-	void redButton();
 	void setA(int value);
 	void setB(int value);
 };
