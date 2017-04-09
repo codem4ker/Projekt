@@ -2,6 +2,7 @@
 
 #include <QGLWidget>
 #include <gl/GLU.h>
+#include <thread>
 
 class MyGLWidget : public QGLWidget
 {

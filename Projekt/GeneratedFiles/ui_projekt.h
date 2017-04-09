@@ -66,8 +66,8 @@ public:
     {
         if (ProjektClass->objectName().isEmpty())
             ProjektClass->setObjectName(QStringLiteral("ProjektClass"));
-        ProjektClass->resize(866, 929);
-        ProjektClass->setMaximumSize(QSize(16777215, 16777215));
+        ProjektClass->resize(848, 920);
+        ProjektClass->setMaximumSize(QSize(868, 950));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -131,7 +131,9 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush7);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
         ProjektClass->setPalette(palette);
-        
+        QIcon icon;
+        icon.addFile(QStringLiteral("../../../../1-0.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        ProjektClass->setWindowIcon(icon);
         centralWidget = new QWidget(ProjektClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -296,7 +298,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_4);
 
-        verticalSpacer_4 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_4 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_4);
 
@@ -347,7 +349,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
-        verticalSpacer_5 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_5 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_5);
 
@@ -392,7 +394,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        verticalSpacer_3 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_3 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer_3);
 

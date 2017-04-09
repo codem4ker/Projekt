@@ -20,21 +20,21 @@ drawCurve:
 	movsd [rbp-10], xmm6
 	movsd [rbp-12], xmm7
 
-	pxor xmm5, xmm5			; xmm5 - counter
+	pxor xmm5, xmm5			; xmm5 - elapsed time 
 	
 	mov r13, [width]
 	sar r13, 1
 	sub r13, 30
-	cvtsi2sd xmm7, r13
+	cvtsi2sd xmm7, r13		; xmm7 - width/2 - 30
 
 	cvtsi2sd xmm6, r9		; xmm6 - fi
 	mulsd xmm6, [rad]
 
 
 	test rdx, rdx			; rdx - a
-	jz a_zero
-	test r8, r8
-	jz b_zero
+	jz a_zero				; test if a == 0
+	test r8, r8				; r8 - b
+	jz b_zero				; test if b == 0
 	movsd xmm1, [d_pi]
 	cvtsi2sd xmm2, rdx		; xmm2 - a
 	cvtsi2sd xmm3, r8		; xmm3 - b
@@ -42,8 +42,8 @@ drawCurve:
 	movsd xmm0, xmm1
 	movsd xmm1, [dt]
 	divsd xmm0, xmm1
-	cvttsd2si r11, xmm0
-	add r11, 1
+	cvttsd2si r11, xmm0		
+	add r11, 1				; r11 - loop counter
 	jmp loop
 
 a_zero:
@@ -57,11 +57,11 @@ a_zero:
 	movsd xmm1, [dt]
 	divsd xmm0, xmm1
 	cvttsd2si r11, xmm0
-	add r11, 1
+	add r11, 1				; r11 - loop counter
 	jmp loop
 
 ab_zero:
-	mov r11, 1
+	mov r11, 1				; r11 - loop counter
 	pxor xmm2, xmm2
 	pxor xmm3, xmm3
 	jmp loop
@@ -75,7 +75,7 @@ b_zero:
 	movsd xmm1, [dt]
 	divsd xmm0, xmm1
 	cvttsd2si r11, xmm0
-	add r11, 1
+	add r11, 1				; r11 - loop counter
 
 loop:
 	movsd xmm4, xmm2			; a
@@ -114,7 +114,7 @@ loop:
 	add r13, r14
 	add r13, r15
 	add r13, 1
-	mov byte [r13], 255
+	mov byte [r13], 255			; storing pixel
 
 	addsd xmm5, [dt]
 	dec r11

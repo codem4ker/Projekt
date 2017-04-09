@@ -29,7 +29,6 @@ void MyGLWidget::paintGL()
 	glBindTexture(GL_TEXTURE_2D, texture);
 	
 	glBegin(GL_QUADS);
-	// Front Face
 	glTexCoord2f(0.0f, 0.0f); 
 	glVertex3f(-1.0f, -1.0f, 0.0f);  // Bottom Left Of The Texture and Quad
 	glTexCoord2f(1.0f, 0.0f); 
@@ -38,10 +37,7 @@ void MyGLWidget::paintGL()
 	glVertex3f(1.0f, 1.0f, 0.0f);  // Top Right Of The Texture and Quad
 	glTexCoord2f(0.0f, 1.0f); 
 	glVertex3f(-1.0f, 1.0f, 0.0f);  // Top Left Of The Texture and Quad
-															  // Back Face
 	glEnd();
-
-
 }
 
 void MyGLWidget::resizeGL(int w, int h)
@@ -56,7 +52,6 @@ int MyGLWidget::loadTexture()
 
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
-	//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Linear Filtering
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Linear Filtering
