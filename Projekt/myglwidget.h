@@ -2,6 +2,7 @@
 
 #include <QGLWidget>
 #include <gl/GLU.h>
+#include <thread>
 
 class MyGLWidget : public QGLWidget
 {
@@ -16,18 +17,19 @@ protected:
 	void resizeGL(int w, int h);
 
 private:
-	int color = 1;
 	int height = 768;
 	int width = 768;
-	double a = 3;
-	double b = 2;
-	int loadTexture();
-	void drawCurve(unsigned char* tab, double a, double b);
+	int pixmapSize;
+	int a = 3;
+	int b = 4;
+	int fi = 0;
+	unsigned char* pixels;
 	GLuint texture;
 
+	int loadTexture();
+
 public slots:
-	void blueButton();
-	void greenButton();
-	void redButton();
 	void setA(int value);
+	void setB(int value);
+	void setFi(int value);
 };

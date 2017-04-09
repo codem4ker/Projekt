@@ -1,13 +1,18 @@
 #include "myglwidget.h"
 #include <QtOpenGL>
 
+extern "C" void drawCurve(unsigned char* tab, int a, int b, int fi);
+
 MyGLWidget::MyGLWidget(QWidget *parent)
 	: QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
 {
+	pixmapSize = width * 3 * height;
+	pixels = new unsigned char[pixmapSize];
 }
 
 MyGLWidget::~MyGLWidget()
 {
+	free(pixels);
 }
 
 void MyGLWidget::initializeGL()
@@ -24,7 +29,6 @@ void MyGLWidget::paintGL()
 	glBindTexture(GL_TEXTURE_2D, texture);
 	
 	glBegin(GL_QUADS);
-	// Front Face
 	glTexCoord2f(0.0f, 0.0f); 
 	glVertex3f(-1.0f, -1.0f, 0.0f);  // Bottom Left Of The Texture and Quad
 	glTexCoord2f(1.0f, 0.0f); 
@@ -33,10 +37,7 @@ void MyGLWidget::paintGL()
 	glVertex3f(1.0f, 1.0f, 0.0f);  // Top Right Of The Texture and Quad
 	glTexCoord2f(0.0f, 1.0f); 
 	glVertex3f(-1.0f, 1.0f, 0.0f);  // Top Left Of The Texture and Quad
-															  // Back Face
 	glEnd();
-
-
 }
 
 void MyGLWidget::resizeGL(int w, int h)
@@ -45,15 +46,12 @@ void MyGLWidget::resizeGL(int w, int h)
 
 int MyGLWidget::loadTexture()
 {
-	int size = width * 3 * height;
-	unsigned char* pixels = new unsigned char[size];
-	memset(pixels, 0, size);
+	memset(pixels, 0, pixmapSize);
 
-	drawCurve(pixels, a, b);
+	drawCurve(pixels, a, b, fi);
 
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
-	//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Linear Filtering
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Linear Filtering
@@ -63,37 +61,21 @@ int MyGLWidget::loadTexture()
 	return 1;
 }
 
-void MyGLWidget::blueButton()
-{
-	color = 0;
-	repaint();
-}
-
-void MyGLWidget::greenButton()
-{
-	color = 1;
-	repaint();
-}
-
-void MyGLWidget::redButton()
-{
-	color = 2;
-	repaint();
-}
 
 void MyGLWidget::setA(int value)
 {
-	this->a = ((double)value) / 10;
+	this->a = value;
 	repaint();
 }
 
-void MyGLWidget::drawCurve(unsigned char* tab, double a, double b)
+void MyGLWidget::setB(int value)
 {
-	
-	for (double i = 0; i < 10; i += 0.0001)
-	{
-		int x = (sin(a * i) + 1) * 374 + 5;
-		int y = (sin(b * i + M_PI / 2) + 1) * 374 + 5;
-		*(tab +  y * 3 * this->width + 3 * x + color) = 255;
-	}
+	this->b = value;
+	repaint();
+}
+
+void MyGLWidget::setFi(int value)
+{
+	this->fi = value;
+	repaint();
 }

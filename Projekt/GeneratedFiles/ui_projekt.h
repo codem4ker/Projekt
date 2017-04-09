@@ -15,8 +15,8 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
@@ -41,24 +41,33 @@ public:
     QSpacerItem *horizontalSpacer_7;
     QSlider *horizontalSlider_2;
     QSpacerItem *horizontalSpacer_8;
+    QLabel *label_3;
+    QLabel *label;
+    QSpacerItem *horizontalSpacer_11;
     QSpacerItem *verticalSpacer_4;
+    QHBoxLayout *horizontalLayout_3;
+    QSpacerItem *horizontalSpacer_9;
+    QSlider *horizontalSlider;
+    QSpacerItem *horizontalSpacer_3;
+    QLabel *label_4;
+    QLabel *label_2;
+    QSpacerItem *horizontalSpacer_10;
+    QSpacerItem *verticalSpacer_5;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_4;
-    QPushButton *blueButton;
-    QSpacerItem *horizontalSpacer_3;
-    QPushButton *pushButton_2;
+    QSlider *horizontalSlider_3;
     QSpacerItem *horizontalSpacer_5;
-    QPushButton *pushButton_3;
+    QLabel *label_5;
+    QLabel *label_6;
     QSpacerItem *horizontalSpacer_6;
-    QSlider *horizontalSlider;
     QSpacerItem *verticalSpacer_3;
 
     void setupUi(QMainWindow *ProjektClass)
     {
         if (ProjektClass->objectName().isEmpty())
             ProjektClass->setObjectName(QStringLiteral("ProjektClass"));
-        ProjektClass->resize(1013, 930);
-        ProjektClass->setMaximumSize(QSize(16777215, 16777215));
+        ProjektClass->resize(848, 920);
+        ProjektClass->setMaximumSize(QSize(868, 950));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -122,6 +131,9 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush7);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
         ProjektClass->setPalette(palette);
+        QIcon icon;
+        icon.addFile(QStringLiteral("../../../../1-0.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        ProjektClass->setWindowIcon(icon);
         centralWidget = new QWidget(ProjektClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -196,9 +208,9 @@ public:
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
+        verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer_2);
 
@@ -228,90 +240,161 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        horizontalSpacer_7 = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalLayout_4->setSizeConstraint(QLayout::SetNoConstraint);
+        horizontalSpacer_7 = new QSpacerItem(50, 10, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout_4->addItem(horizontalSpacer_7);
 
         horizontalSlider_2 = new QSlider(centralWidget);
         horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
-        horizontalSlider_2->setMinimum(1);
-        horizontalSlider_2->setMaximum(50);
-        horizontalSlider_2->setValue(30);
+        horizontalSlider_2->setMinimum(0);
+        horizontalSlider_2->setMaximum(10);
+        horizontalSlider_2->setPageStep(2);
+        horizontalSlider_2->setValue(3);
         horizontalSlider_2->setOrientation(Qt::Horizontal);
+        horizontalSlider_2->setInvertedAppearance(false);
+        horizontalSlider_2->setInvertedControls(false);
+        horizontalSlider_2->setTickPosition(QSlider::NoTicks);
 
         horizontalLayout_4->addWidget(horizontalSlider_2);
 
-        horizontalSpacer_8 = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_8 = new QSpacerItem(15, 10, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout_4->addItem(horizontalSpacer_8);
+
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        sizePolicy1.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
+        label_3->setSizePolicy(sizePolicy1);
+        QFont font;
+        font.setPointSize(10);
+        font.setBold(true);
+        font.setWeight(75);
+        label_3->setFont(font);
+
+        horizontalLayout_4->addWidget(label_3);
+
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        sizePolicy1.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy1);
+        label->setMinimumSize(QSize(25, 20));
+        label->setMaximumSize(QSize(24, 20));
+        label->setFont(font);
+
+        horizontalLayout_4->addWidget(label);
+
+        horizontalSpacer_11 = new QSpacerItem(40, 10, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_11);
 
 
         verticalLayout->addLayout(horizontalLayout_4);
 
-        verticalSpacer_4 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_4 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_4);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalSpacer_9 = new QSpacerItem(50, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_9);
+
+        horizontalSlider = new QSlider(centralWidget);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setMaximum(10);
+        horizontalSlider->setPageStep(2);
+        horizontalSlider->setValue(4);
+        horizontalSlider->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_3->addWidget(horizontalSlider);
+
+        horizontalSpacer_3 = new QSpacerItem(15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_3);
+
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setFont(font);
+
+        horizontalLayout_3->addWidget(label_4);
+
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy2);
+        label_2->setMinimumSize(QSize(25, 0));
+        label_2->setMaximumSize(QSize(25, 16777215));
+        label_2->setFont(font);
+        label_2->setLineWidth(1);
+
+        horizontalLayout_3->addWidget(label_2);
+
+        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_10);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
+        verticalSpacer_5 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_5);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_4 = new QSpacerItem(50, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_4);
 
-        blueButton = new QPushButton(centralWidget);
-        blueButton->setObjectName(QStringLiteral("blueButton"));
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(blueButton->sizePolicy().hasHeightForWidth());
-        blueButton->setSizePolicy(sizePolicy2);
+        horizontalSlider_3 = new QSlider(centralWidget);
+        horizontalSlider_3->setObjectName(QStringLiteral("horizontalSlider_3"));
+        horizontalSlider_3->setMaximum(360);
+        horizontalSlider_3->setOrientation(Qt::Horizontal);
 
-        horizontalLayout->addWidget(blueButton);
+        horizontalLayout->addWidget(horizontalSlider_3);
 
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_3);
-
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        sizePolicy2.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
-        pushButton_2->setSizePolicy(sizePolicy2);
-
-        horizontalLayout->addWidget(pushButton_2);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_5 = new QSpacerItem(15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_5);
 
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        sizePolicy2.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy2);
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setFont(font);
 
-        horizontalLayout->addWidget(pushButton_3);
+        horizontalLayout->addWidget(label_5);
 
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        label_6 = new QLabel(centralWidget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        sizePolicy2.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
+        label_6->setSizePolicy(sizePolicy2);
+        label_6->setMinimumSize(QSize(45, 0));
+        label_6->setMaximumSize(QSize(45, 16777215));
+        label_6->setFont(font);
+
+        horizontalLayout->addWidget(label_6);
+
+        horizontalSpacer_6 = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_6);
 
 
         verticalLayout->addLayout(horizontalLayout);
 
-        horizontalSlider = new QSlider(centralWidget);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setOrientation(Qt::Horizontal);
-
-        verticalLayout->addWidget(horizontalSlider);
-
-        verticalSpacer_3 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_3 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer_3);
 
@@ -321,20 +404,25 @@ public:
         ProjektClass->setCentralWidget(centralWidget);
 
         retranslateUi(ProjektClass);
-        QObject::connect(blueButton, SIGNAL(clicked()), openGLWidget, SLOT(blueButton()));
-        QObject::connect(pushButton_3, SIGNAL(clicked()), openGLWidget, SLOT(redButton()));
-        QObject::connect(pushButton_2, SIGNAL(clicked()), openGLWidget, SLOT(greenButton()));
         QObject::connect(horizontalSlider_2, SIGNAL(valueChanged(int)), openGLWidget, SLOT(setA(int)));
+        QObject::connect(horizontalSlider, SIGNAL(valueChanged(int)), openGLWidget, SLOT(setB(int)));
+        QObject::connect(horizontalSlider_2, SIGNAL(valueChanged(int)), label, SLOT(setNum(int)));
+        QObject::connect(horizontalSlider, SIGNAL(valueChanged(int)), label_2, SLOT(setNum(int)));
+        QObject::connect(horizontalSlider_3, SIGNAL(valueChanged(int)), openGLWidget, SLOT(setFi(int)));
+        QObject::connect(horizontalSlider_3, SIGNAL(valueChanged(int)), label_6, SLOT(setNum(int)));
 
         QMetaObject::connectSlotsByName(ProjektClass);
     } // setupUi
 
     void retranslateUi(QMainWindow *ProjektClass)
     {
-        ProjektClass->setWindowTitle(QApplication::translate("ProjektClass", "Projekt", 0));
-        blueButton->setText(QApplication::translate("ProjektClass", "Niebieski", 0));
-        pushButton_2->setText(QApplication::translate("ProjektClass", "Zielony", 0));
-        pushButton_3->setText(QApplication::translate("ProjektClass", "Czerwony", 0));
+        ProjektClass->setWindowTitle(QApplication::translate("ProjektClass", "Krzywe Lissajous", 0));
+        label_3->setText(QApplication::translate("ProjektClass", "a:", 0));
+        label->setText(QApplication::translate("ProjektClass", "3", 0));
+        label_4->setText(QApplication::translate("ProjektClass", "b:", 0));
+        label_2->setText(QApplication::translate("ProjektClass", "4", 0));
+        label_5->setText(QApplication::translate("ProjektClass", "\317\206:", 0));
+        label_6->setText(QApplication::translate("ProjektClass", "0", 0));
     } // retranslateUi
 
 };
